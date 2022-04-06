@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { ListVideosComponent } from './components/list-videos/list-videos.component';
 import { MoviesComponent } from './components/movies/movies.component';
 import { SeriesComponent } from './components/series/series.component';
+import { VideoDetailComponent } from './components/video-detail/video-detail.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 
 
@@ -17,10 +18,15 @@ const routes: Routes = [
         data: {title: 'Popular Titles'}
       },
       {
-        path: 'movies', component : MoviesComponent
+        path: 'movie', component : MoviesComponent,
+        data: {title: 'Popular movies'}
       },
       {
-        path: 'series', component : SeriesComponent
+        path: 'series', component : SeriesComponent,
+        data: {title: 'Popular series'}
+      },
+      {
+        path: 'details', component: VideoDetailComponent
       },
       {
         path: '', redirectTo: 'demo-streaming', pathMatch: 'full'

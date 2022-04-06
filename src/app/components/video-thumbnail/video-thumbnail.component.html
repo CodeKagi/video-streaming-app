@@ -1,6 +1,6 @@
 <div class="video-thumbnail" routerLink="/home/{{videoRoute}}" routerLinkActive="active">
   <div class="video-thumbnail__content">
-    <img src="" alt="" />
+    <img *ngIf="videoUrl !== ''" src={{videoUrl}} width="150" height="200"/>
   </div>
-  <div class="video-thumbnail__footer">Program title</div>
+  <div class="video-thumbnail__footer">{{videoTitle}}</div>
 </div>

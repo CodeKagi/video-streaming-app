@@ -15,7 +15,7 @@ export class ListVideosComponent implements OnInit {
 
   videoType = [
     {
-      route: 'movies'
+      route: 'movie'
     },
     {
       route : 'series'
