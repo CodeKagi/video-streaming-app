@@ -1,1 +1,25 @@
-<p>header works!</p>
+<div class="header">
+  <div class="inner-container">
+    <div class="header-content">
+      <h2 routerLink="demo-streaming">{{ title }}</h2>
+      <div class="header-buttons">
+        <a href="" class="cta-login">{{ ctaTitleLogin }}</a>
+        <a href="" class="cta-subscribe">{{ subscribeTitle }}</a>
+      </div>
+      <div class="mobile-menu">
+        <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu" />
+        <label for="openSidebarMenu" class="sidebarIconToggle">
+          <div class="spinner diagonal part-1"></div>
+          <div class="spinner horizontal"></div>
+          <div class="spinner diagonal part-2"></div>
+        </label>
+        <div id="sidebarMenu">
+          <div class="main-content-wrapper">
+            <a href="" class="cta-login">{{ ctaTitleLogOut }}</a>
+            <a href="" class="cta-subscribe">{{ subscribeTitle }}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,128 @@
+.footer {
+  background-color: #1e1e1e;
+  display: flex;
+  padding: 2.66vw 0;
+  transition: background-color 1s linear;
+  min-height: 3.66vw;
+  bottom: 0;
+  position: fixed;
+  left: 0;
+  right: 0;
+  margin-bottom: 0;
+  .footer-links {
+    display: flex;
+    margin-bottom: 15px;
+    li {
+      border-right: 2px solid #c1c3c2;
+      margin-right: 5px;
+      padding-right: 15px;
+      margin-left: 15px;
+      height: 15px;
+      &:last-child {
+        border: 0;
+        margin-right: 0;
+      }
+      &:first-child {
+        margin-left: 0;
+      }
+      &:hover {
+        border-right: 2px solid #0075ff;
+        &:last-child {
+          border: none;
+        }
+      }
+      a {
+        text-decoration: none;
+        color: #c1c3c2;
+        font-size: 14px;
+        &:hover {
+          color: #0075ff;
+        }
+      }
+    }
+  }
+  .copyright {
+    color: #97989d;
+    font-size: 12px;
+    margin-bottom: 55px;
+  }
+
+  .footer-icons {
+    display: flex;
+    justify-content: space-between;
+    .social-icons {
+      display: flex;
+      li {
+        margin-right: 25px;
+        a {
+          .facebook {
+            width: 15px;
+          }
+          .twitter {
+            width: 30px;
+          }
+          .instagram {
+            width: 30px;
+          }
+        }
+      }
+    }
+    .app-icons {
+      display: flex;
+      li {
+        margin-right: 25px;
+        img {
+          height: 40px;
+        }
+      }
+    }
+  }
+}
+// Responsiveness Mobile
+@media screen and (min-device-width: 320px) and (max-device-width: 736px) {
+  .footer {
+    padding: 20px 0px;
+    .footer-links {
+      flex-wrap: wrap;
+      display: none;
+    }
+    .copyright {
+      margin-bottom: 20px;
+    }
+    .footer-icons {
+      flex-direction: column;
+      .social-icons {
+        justify-content: center;
+        margin-bottom: 15px;
+      }
+      .app-icons {
+        justify-content: center;
+        li {
+          margin-right: 10px;
+          img {
+            height: 35px;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Responsiveness Laptops
+@media screen and (min-device-width: 1200px) and (max-device-width: 1600px) {
+  .footer {
+    padding: 20px 0px;
+    .footer-links {
+      li {
+        margin-right: 0;
+        padding-right: 10px;
+        a {
+          font-size: 13px;
+        }
+      }
+    }
+    .copyright {
+      margin-bottom: 40px;
+    }
+  }
+}

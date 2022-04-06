@@ -1,0 +1,29 @@
+.video-thumbnail {
+  font-size: 12px;
+  width: 150px;
+  height: auto;
+  margin-right: 20px;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  @media screen and (min-device-width: 320px) and (max-device-width: 736px) {
+    width: 9.1875rem;
+  }
+  &__content {
+    height: 200px;
+    background-image: url("../../../assets/placeholder.png");
+    background-color: #1e1e1e;
+    background-repeat: no-repeat;
+    background-position: center;
+    text-align: center;
+    vertical-align: middle;
+    @media screen and (min-device-width: 1200px) and (max-device-width: 1600px) {
+      height: 180px;
+    }
+  }
+  &__footer {
+    height: 20px;
+    display: flex;
+    width: 100%;
+    padding-top: 10px;
+  }
+}

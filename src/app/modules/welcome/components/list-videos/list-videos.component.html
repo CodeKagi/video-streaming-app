@@ -1,1 +1,12 @@
-<p>list-videos works!</p>
+<div class="featured-content">
+  <div class="featured-content__heading">
+    <div class="inner-container">
+      <h2>{{ pageTitle }}</h2>
+    </div>
+  </div>
+  <div class="featured-content__info">
+    <div *ngFor="let video of videoType">
+      <app-video-thumbnail [videoRoute]="video.route"></app-video-thumbnail>
+    </div>
+  </div>
+</div>

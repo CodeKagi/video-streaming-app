@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./series.component.scss']
 })
 export class SeriesComponent implements OnInit {
-
+  pageTitle: string = 'popular series';
   constructor() { }
 
   ngOnInit(): void {
