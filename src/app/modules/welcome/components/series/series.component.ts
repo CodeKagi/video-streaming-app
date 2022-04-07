@@ -16,9 +16,19 @@ export class SeriesComponent implements OnInit {
   videoList: Video[];
   hasHttpError: boolean = false;
   seriesList: Video[];
+
   constructor(private videoService: VideoService, private activatedRoute: ActivatedRoute, private router : Router) { }
 
   ngOnInit(): void {
+    this.getAllVideos();
+    this.getActiveRoute();
+  }
+
+  getActiveRoute(): void {
+    this.activatedRoute.data.subscribe(route => {
+     this.pageTitle = route['title'];
+      console.log("activate route is", this.pageTitle);
+    })
   }
 
   getAllVideos(): void {
@@ -28,30 +38,29 @@ export class SeriesComponent implements OnInit {
         .subscribe((response: VideoData) => {
           if (response?.entries) {
             this.videoList = response.entries;
-            this.filterMovies();
+            this.filterSeries();
           }
         });
     } catch (error) {
-      error.message = `MoviesComponent::getAllVideos() - ${error.message}`;
+      error.message = `SeriesComponent::getAllVideos() - ${error.message}`;
       throw error;
     }
   }
 
-  filterMovies(): void {
+  filterSeries(): void {
     const series = this.videoList
-      ?.filter((series: Video) => {
-        return series.programType === 'movie' && series.releaseYear >= 2010;
+      ?.filter((videos: Video) => {
+        return videos.programType === 'series' && videos.releaseYear >= 2010;
       })
-      .filter((series: Video, index: number) => {
+      .filter((video: Video, index: number) => {
         return index < 21;
       })
       .sort((a, b) => (a.title > b.title ? 1 : -1));
       this.seriesList = series;
-      console.log("filtered movies are", this.seriesList);
+      console.log("filtered series are", this.seriesList);
   }
 
-  getVideoThumbnail(series: Video) {
-		return series.images['Poster Art'].url;
+  getVideoThumbnail(seriesData: Video) {
+		return seriesData.images['Poster Art'].url;
 	}
-
 }

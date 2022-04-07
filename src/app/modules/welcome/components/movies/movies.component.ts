@@ -31,6 +31,7 @@ export class MoviesComponent implements OnInit {
      console.log("activate route is", this.pageTitle);
    })
  }
+
   getAllVideos(): void {
     try {
       this.videoDataSubscription = this.videoService
@@ -49,19 +50,19 @@ export class MoviesComponent implements OnInit {
 
   filterMovies(): void {
     const movies = this.videoList
-      ?.filter((movie: Video) => {
-        return movie.programType === 'movie' && movie.releaseYear >= 2010;
+      ?.filter((videos: Video) => {
+        return videos.programType === 'movie' && videos.releaseYear >= 2010;
       })
       .filter((movies: Video, index: number) => {
         return index < 21;
       })
       .sort((a, b) => (a.title > b.title ? 1 : -1));
       this.movieList = movies;
-      console.log("filtered movies are", this.movieList);
+
   }
 
-  getVideoThumbnail(movie: Video) {
-		return movie.images['Poster Art'].url;
+  getVideoThumbnail(moviesData: Video) {
+		return moviesData.images['Poster Art'].url;
 	}
 
   detailPageRoute(dataInfo): void {
