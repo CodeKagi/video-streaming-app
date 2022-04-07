@@ -5,8 +5,8 @@
     </div>
   </div>
   <div class="featured-content__info">
-    <!-- <div *ngFor="let movie of movies">
-      <app-video-thumbnail></app-video-thumbnail>
-    </div> -->
+    <div *ngFor="let series of seriesList">
+      <app-video-thumbnail [videoRoute]="series.programType" [videoTitle]="series.title" videoUrl={{getVideoThumbnail(series)}}></app-video-thumbnail>
+    </div>
   </div>
 </div>
