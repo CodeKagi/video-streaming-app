@@ -57,10 +57,13 @@ export class SeriesComponent implements OnInit {
       })
       .sort((a, b) => (a.title > b.title ? 1 : -1));
       this.seriesList = series;
-      console.log("filtered series are", this.seriesList);
   }
 
   getVideoThumbnail(seriesData: Video) {
 		return seriesData.images['Poster Art'].url;
 	}
+
+  detailPageRoute(dataInfo): void {
+    this.router.navigateByUrl("home/details", { state: dataInfo});
+  }
 }
