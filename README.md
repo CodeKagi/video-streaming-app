@@ -55,5 +55,18 @@ I have created the below flat folder structure for my project, this makes possib
    - VideoService
    - LoaderService
 - Shared Styles 
-  -
+  - (all the css that componets share leaves here)
+
+  ## Improvements I could have made
+
+- I could have implemented caching service that can store my data and cache it. reduces api calls
+- I could have included http, and error handling interceptors
+- I could have implemented better unit as well as e2e testing
+
+## Things I would have approached differently
+
+- Improved the logic for fetching movies and series, as the code repeat itself in both components
+- Improved the build process and deployment pipeline 
+- render dist files using express
+- added more unit test for my app
    

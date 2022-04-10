@@ -5,7 +5,8 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoaderService } from './services/loader.service';
-import { LoaderInterceptor } from './services/loader.interceptor';
+import { LoaderInterceptor } from './interceptors/loader.interceptor';
+
 
 @NgModule({
   declarations: [
