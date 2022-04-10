@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { of, Subscription } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 import { Video } from 'src/app/models/video';
 import { VideoData } from 'src/app/models/video-data';
 import { VideoService } from 'src/app/services/video.service';
@@ -8,7 +9,7 @@ import { VideoService } from 'src/app/services/video.service';
 @Component({
   selector: 'app-series',
   templateUrl: './series.component.html',
-  styleUrls: ['./series.component.scss']
+  styleUrls: ['./series.component.scss'],
 })
 export class SeriesComponent implements OnInit {
   pageTitle: string;
@@ -17,36 +18,48 @@ export class SeriesComponent implements OnInit {
   hasHttpError: boolean = false;
   seriesList: Video[];
 
-  constructor(private videoService: VideoService, private activatedRoute: ActivatedRoute, private router : Router) { }
+  constructor(
+    private videoService: VideoService,
+    private activatedRoute: ActivatedRoute,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.getAllVideos();
     this.getActiveRoute();
   }
-
+  /**
+   *
+   * @returns {route}
+   * @memberof VideoService
+   */
   getActiveRoute(): void {
-    this.activatedRoute.data.subscribe(route => {
-     this.pageTitle = route['title'];
-      console.log("activate route is", this.pageTitle);
-    })
+    this.activatedRoute.data.subscribe((route) => {
+      this.pageTitle = route['title'];
+    });
   }
-
+  /**
+   *
+   * @returns {Videos[]}
+   * @memberof VideoService
+   */
   getAllVideos(): void {
-    try {
-      this.videoDataSubscription = this.videoService
-        .getAllVideoList()
-        .subscribe((response: VideoData) => {
-          if (response?.entries) {
-            this.videoList = response.entries;
-            this.filterSeries();
-          }
-        });
-    } catch (error) {
-      error.message = `SeriesComponent::getAllVideos() - ${error.message}`;
-      throw error;
-    }
+    (this.videoDataSubscription = this.videoService
+      .getAllVideoList()
+      .subscribe((response: VideoData) => {
+        if (response?.entries) {
+          this.videoList = response.entries;
+          this.filterSeries();
+        }
+      })),
+      catchError((error) => of(this.handleError(error)));
   }
 
+  /**
+   *
+   * @returns {series videos}
+   * @memberof VideoService
+   */
   filterSeries(): void {
     const series = this.videoList
       ?.filter((videos: Video) => {
@@ -56,14 +69,29 @@ export class SeriesComponent implements OnInit {
         return index < 21;
       })
       .sort((a, b) => (a.title > b.title ? 1 : -1));
-      this.seriesList = series;
+    this.seriesList = series;
   }
 
-  getVideoThumbnail(seriesData: Video) {
-		return seriesData.images['Poster Art'].url;
-	}
+  handleError(error: any): void {
+    this.hasHttpError = true;
+    throw new Error(error);
+  }
 
+  /**
+   * @param {video}
+   * @returns {route}
+   * @memberof VideoService
+   */
+  getVideoThumbnail(seriesData: Video) {
+    return seriesData.images['Poster Art'].url;
+  }
+
+  /**
+   * @param {video}
+   * @returns {route}
+   * @memberof VideoService
+   */
   detailPageRoute(dataInfo): void {
-    this.router.navigateByUrl("home/details", { state: dataInfo});
+    this.router.navigateByUrl('home/details', { state: dataInfo });
   }
 }

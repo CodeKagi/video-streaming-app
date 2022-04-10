@@ -5,8 +5,19 @@
     </div>
   </div>
   <div class="featured-content__info">
-    <div *ngFor="let movie of movieList">
-      <app-video-thumbnail [videoRoute]="movie.programType" [videoTitle]="movie.title" videoUrl={{getVideoThumbnail(movie)}} (click)="detailPageRoute(movie)"></app-video-thumbnail>
+    <div *ngIf="!hasHttpError">
+      <app-loader></app-loader>
+      <div *ngFor="let movie of movieList">
+        <app-video-thumbnail
+          [videoRoute]="movie.programType"
+          [videoTitle]="movie.title"
+          videoUrl="{{ getVideoThumbnail(movie) }}"
+          (click)="detailPageRoute(movie)"
+        ></app-video-thumbnail>
+      </div>
+    </div>
+    <div *ngIf="hasHttpError" class="">
+      <app-error></app-error>
     </div>
   </div>
 </div>

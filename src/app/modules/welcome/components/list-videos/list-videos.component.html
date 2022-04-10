@@ -5,8 +5,16 @@
     </div>
   </div>
   <div class="featured-content__info">
-    <div *ngFor="let programTypes of filteredProgramTypes">
-      <app-program-type-video videoRoute={{programTypes.programType}} videoTitle={{programTypes.programType}}></app-program-type-video>
-    </div>
+    <ng-container *ngIf="!error" >
+      <app-loader></app-loader>
+      <div *ngFor="let programTypes of filteredProgramTypes">
+        <app-program-type-video videoRoute={{programTypes.programType}} videoTitle={{programTypes.programType}}></app-program-type-video>
+      </div>
+    </ng-container>
+
+    <div *ngIf="error" class="">
+			<app-error></app-error>
+		</div>
+
   </div>
 </div>

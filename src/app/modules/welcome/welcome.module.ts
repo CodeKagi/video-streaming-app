@@ -11,6 +11,8 @@ import { FooterComponent } from 'src/app/components/footer/footer.component';
 import { VideoThumbnailComponent } from 'src/app/components/video-thumbnail/video-thumbnail.component';
 import { VideoDetailComponent } from './components/video-detail/video-detail.component';
 import { ProgramTypeVideoComponent } from 'src/app/components/program-type-video/program-type-video.component';
+import { LoaderComponent } from 'src/app/components/loader/loader.component';
+import { ErrorComponent } from 'src/app/components/error/error.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { ProgramTypeVideoComponent } from 'src/app/components/program-type-video
     FooterComponent,
     VideoThumbnailComponent,
     VideoDetailComponent,
-    ProgramTypeVideoComponent
+    ProgramTypeVideoComponent,
+    LoaderComponent,
+    ErrorComponent
   ],
   imports: [CommonModule, WelcomeRoutingModule],
 })

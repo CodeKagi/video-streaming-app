@@ -7,29 +7,43 @@ import { VideoData } from '../models/video-data';
 import { map, catchError } from 'rxjs/operators';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class VideoService {
-
   apiUrl = environment.baseApiUrl;
   videosList: Video[];
 
-  constructor(private httpClient: HttpClient) { }
-
+  constructor(private httpClient: HttpClient) {}
+  /**
+   *
+   * @returns {Videos[]}
+   * @memberof VideoService
+   */
   getAllVideoList(): Observable<VideoData> {
     const options = {
       headers: {
-        'content-type': 'application/json'
-      }
-    }
+        'content-type': 'application/json',
+      },
+    };
     return this.httpClient.get<VideoData>(this.apiUrl, options);
   }
 
+  /**
+   *
+   * @returns {Program Type Videos}
+   * @memberof VideoService
+   */
   filterProgramTypes(): Observable<Video[]> {
-     return this.httpClient.get<VideoData>(this.apiUrl).pipe(map((response) => {
-       return response.entries.filter((videoData, index, myArray) => {
-         return myArray.map(videos => videos['programType']).indexOf(videoData['programType']) === index
-       })
-     }))
+    return this.httpClient.get<VideoData>(this.apiUrl).pipe(
+      map((response) => {
+        return response.entries.filter((videoData, index, myArray) => {
+          return (
+            myArray
+              .map((videos) => videos['programType'])
+              .indexOf(videoData['programType']) === index
+          );
+        });
+      })
+    );
   }
 }
