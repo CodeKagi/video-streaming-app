@@ -2,9 +2,12 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.5.
 
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Installation & Development
+1. `cd video-streaming-app`  
+2. `npm i`  
+3. Run `npm start` for a dev server. 
+4. Navigate to `http://localhost:4200/`. 
+5. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 
@@ -22,6 +25,35 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
-## Further help
+## Technical and architectural choices used 
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+I have created the below flat folder structure for my project, this makes possible to locate the files faster. and also helps in debugging to get files at the right places.
+
+- Components created:
+   - Error
+   - Footer
+   - Header
+   - Loader
+   - Login
+   - ProgramTypeVideo
+   - Video Thumbnail
+- Feed
+   - Sample.json
+- Interceptors
+   - LoaderInterceptor
+- Models
+   - VideoData
+   - Video
+- Modules
+  -components
+    - ListVideos (Home)
+    - Movies (Movie listing page)
+    - Series (Series listing page)  
+    - VideoDetail (Video details page)
+    - Welcome (video route landing page) 
+- Service
+   - VideoService
+   - LoaderService
+- Shared Styles 
+  -
+   
