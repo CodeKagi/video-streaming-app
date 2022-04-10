@@ -10,13 +10,20 @@ import { HeaderComponent } from 'src/app/components/header/header.component';
 import { FooterComponent } from 'src/app/components/footer/footer.component';
 import { VideoThumbnailComponent } from 'src/app/components/video-thumbnail/video-thumbnail.component';
 import { VideoDetailComponent } from './components/video-detail/video-detail.component';
-
+import { ProgramTypeVideoComponent } from 'src/app/components/program-type-video/program-type-video.component';
 
 @NgModule({
-  declarations: [MoviesComponent, SeriesComponent, ListVideosComponent, WelcomeComponent, HeaderComponent, FooterComponent, VideoThumbnailComponent, VideoDetailComponent],
-  imports: [
-    CommonModule,
-    WelcomeRoutingModule
-  ]
+  declarations: [
+    MoviesComponent,
+    SeriesComponent,
+    ListVideosComponent,
+    WelcomeComponent,
+    HeaderComponent,
+    FooterComponent,
+    VideoThumbnailComponent,
+    VideoDetailComponent,
+    ProgramTypeVideoComponent
+  ],
+  imports: [CommonModule, WelcomeRoutingModule],
 })
-export class WelcomeModule { }
+export class WelcomeModule {}
