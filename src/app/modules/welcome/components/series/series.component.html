@@ -11,6 +11,16 @@
         <app-video-thumbnail [videoRoute]="series.programType" [videoTitle]="series.title" videoUrl={{getVideoThumbnail(series)}} (click)="detailPageRoute(series)"></app-video-thumbnail>
       </div>
     </div>
+    <div *ngIf="seriesList" class="pagination">
+      <a href="#">&laquo;</a>
+      <a href="#">1</a>
+      <a class="active" href="#">2</a>
+      <a href="#">3</a>
+      <a href="#">4</a>
+      <a href="#">5</a>
+      <a href="#">6</a>
+      <a href="#">&raquo;</a>
+    </div>
     <div *ngIf="hasHttpError" class="">
       <app-error></app-error>
     </div>

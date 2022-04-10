@@ -4,6 +4,7 @@
   height: auto;
   margin-right: 20px;
   margin-bottom: 1rem;
+  position: relative;
   cursor: pointer;
   @media screen and (min-device-width: 320px) and (max-device-width: 736px) {
     width: 9.1875rem;
@@ -25,5 +26,43 @@
     display: flex;
     width: 100%;
     padding-top: 10px;
+  }
+  &:hover {
+    .overlay {
+      opacity: 1;
+    }
+    &__footer{
+      display: none;
+    }
+  }
+  .overlay {
+    background-color: rgba(0, 0, 0, 0.8);
+    width: 150px;
+    position: absolute;
+    top: 0;
+    display: flex;
+    height: 100%;
+    opacity: 0;
+    justify-content: center;
+    -webkit-transition: background-color 0.5s ease-in, opacity 0.5s ease-in;
+    transition: background-color 0.5s ease-in, opacity 0.5s ease-in;
+    span  {
+      color: white;
+      height: 20px;
+      margin-top: 7rem;
+      border-radius: 5px;
+      padding-left: 10px;
+      padding-right: 10px;
+      display: flex;
+      justify-content: center;
+      padding-top: 5px;
+      text-transform: capitalize;
+      background-color: #0075ff;
+      font-weight: 600;
+      cursor: pointer;
+      &:hover {
+        background-color: #0077ff;
+      }
+    }
   }
 }
