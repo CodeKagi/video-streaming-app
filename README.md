@@ -28,6 +28,7 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Technical and architectural choices used 
 
 I have created the below flat folder structure for my project, this makes possible to locate the files faster. and also helps in debugging to get files at the right places.
+i have added 
 
 - Components created:
    - Error
