@@ -69,4 +69,5 @@ I have created the below flat folder structure for my project, this makes possib
 - Improved the build process and deployment pipeline 
 - render dist files using express
 - added more unit test for my app
+- styled the details page better
    
