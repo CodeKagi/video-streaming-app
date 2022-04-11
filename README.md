@@ -68,7 +68,8 @@ i have added
 
 - Improved the logic for fetching movies and series, as the code repeat itself in both components
 - Improved the build process and deployment pipeline 
-- render dist files using express
-- added more unit test for my app
-- styled the details page better
-   
+- Render dist files using express
+- Added more unit test for my app
+- Styled the details page better (extras i have added)
+- Added pagination functionality (extras i have added)
+
