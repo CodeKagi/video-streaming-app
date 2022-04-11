@@ -73,3 +73,8 @@ i have added
 - Styled the details page better (extras i have added)
 - Added pagination functionality (extras i have added)
 
+## Bugs encountered while developing, would solve if had more time
+
+- Google Raleway font not pulling through.
+
+
