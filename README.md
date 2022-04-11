@@ -70,7 +70,7 @@ i have added
 - Improved the build process and deployment pipeline 
 - Render dist files using express
 - Added more unit test for my app
-- Styled the details page better (extras i have added)
+- Styled the details page better, extract detail page data and display it correctly, at the moment is just json been passed through (extras i have added)
 - Added pagination functionality (extras i have added)
 
 ## Bugs encountered while developing, would solve if had more time
